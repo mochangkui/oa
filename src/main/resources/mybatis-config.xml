@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--  开启驼峰名称转换 form_id -> formId -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--  开发环境配置  -->
+    <environments default="dev">
+        <environment id="dev">
+            <!--  事务管理器采用JDBC方式  -->
+            <transactionManager type="JDBC"> </transactionManager>
+            <!-- JDBC连接属性 -->
+            <!-- 利用Mybatis自带连接池管理连接 -->
+            <!-- <dataSource type="POOLED"> -->
+            <!-- <property name="driver" value="com.mysql.cj.jdbc.Driver" /> -->
+            <!-- <property name="url" value="jdbc:mysql://localhost:3306/imooc-oa?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true" />-->
+            <!-- <property name="username" value="root" /> -->
+            <!-- <property name="password" value="root" /> -->
+            <!-- </dataSource> -->
+            <!-- Mybatis与Druid的整合 -->
+            <dataSource type="com.imooc.oa.datasource.DruidDataSourceFactory">
+                <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://localhost:3306/imooc-oa?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true" />
+                <property name="username" value="root" />
+                <property name="password" value="root" />
+                <property name="initialSize" value="10" />
+                <property name="maxActive" value="20" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/user.xml" />
+        <mapper resource="mappers/rbac.xml" />
+        <mapper resource="mappers/employee.xml" />
+        <mapper resource="mappers/department.xml" />
+        <mapper resource="mappers/leave_form.xml" />
+        <mapper resource="mappers/process_flow.xml" />
+        <mapper resource="mappers/notice.xml" />
+    </mappers>
+</configuration>
