@@ -5,7 +5,7 @@
   <artifactId>imooc-oa</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>oa Maven Webapp</name>
+  <name>imooc-oa Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <repositories>
     <repository>
